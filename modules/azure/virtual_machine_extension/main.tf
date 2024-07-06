@@ -1,4 +1,4 @@
-resource "azurerm_virtual_machine_extension" "current" {
+resource "azurerm_virtual_machine_extension" "vm_extension" {
   name                         = var.name
   virtual_machine_id           = var.virtual_machine_id
   publisher                    = var.publisher

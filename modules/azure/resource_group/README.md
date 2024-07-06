@@ -4,10 +4,10 @@ This module provisions an Azure Resource Group.
 
 ## Usage
 
-
-resource "azurerm_resource_group" "azrg" {
-  name     = var.azrg_name
+resource "azurerm_resource_group" "main" {
+  name     = var.name
   location = var.location
+  tags     = var.tags
 }
 
 
@@ -17,7 +17,7 @@ resource "azurerm_resource_group" "azrg" {
 
 | Name       | Description                                           | Type    | Default | Required |
 |------------|-------------------------------------------------------|---------|---------|----------|
-| azrg_name  | The name of the Azure Resource Group.                 | string  | n/a     | yes      |
+| name  | The name of the Azure Resource Group.                 | string  | n/a     | yes      |
 | location   | The location/region where the Resource Group will be created. | string  | n/a     | yes      |
 
 ## Outputs
@@ -26,4 +26,4 @@ resource "azurerm_resource_group" "azrg" {
 
 | Name     | Description                            |
 |----------|----------------------------------------|
-| azrg_id  | The ID of the Azure Resource Group.    |
+| id  | The ID of the Azure Resource Group.    |

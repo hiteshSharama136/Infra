@@ -1,4 +1,4 @@
-resource "azurerm_log_analytics_solution" "current" {
+resource "azurerm_log_analytics_solution" "log_analytics" {
   solution_name         = var.solution_name
   location              = var.location
   resource_group_name   = var.resource_group_name

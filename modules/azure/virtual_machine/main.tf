@@ -1,4 +1,4 @@
-resource "azurerm_virtual_machine" "main" {
+resource "azurerm_virtual_machine" "vm" {
   name                          = var.vm_name
   resource_group_name           = var.resource_group_name
   location                      = var.location

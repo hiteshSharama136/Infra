@@ -1,4 +1,4 @@
-resource "azurerm_signalr_service_network_acl" "example" {
+resource "azurerm_signalr_service_network_acl" "signalr_nacl" {
   signalr_service_id = var.signalr_service_id
   default_action     = var.default_action
 

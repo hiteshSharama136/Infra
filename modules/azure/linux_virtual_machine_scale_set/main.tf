@@ -1,4 +1,4 @@
-resource "azurerm_linux_virtual_machine_scale_set" "current" {
+resource "azurerm_linux_virtual_machine_scale_set" "linux_virtual_machine" {
   name                = var.name
   resource_group_name = var.resource_group_name
   location            = var.location
