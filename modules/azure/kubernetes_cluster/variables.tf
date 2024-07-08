@@ -167,3 +167,13 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "kubernetes_version" {
+  type        = string
+  description = "(Optional) Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as 1.22 are also supported. - The minor version's latest GA patch is automatically chosen in that case."
+}
+
+variable "vnet_subnet_id" {
+  type        = string
+  description = "(Required) Subnet Id to deploy the cluster"
+}
