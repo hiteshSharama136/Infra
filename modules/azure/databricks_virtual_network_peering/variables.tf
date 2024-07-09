@@ -27,3 +27,8 @@ variable "allow_virtual_network_access" {
    type        = string
    description = "(Optional) Can the VMs in the local virtual network space access the VMs in the remote virtual network space? Defaults to true."
 }
+
+variable "virtual_network_name" {
+  description = "The name of the virtual network"
+  type        = string
+}
