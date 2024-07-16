@@ -3,7 +3,7 @@ variable "appconf_id" {
   description = "Provide the app configuration id."
 }
 
-variable "name" {
+variable "app_config_feature_name" {
   type        = string
   description = "Provide the name of the secret."
 }

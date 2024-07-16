@@ -13,7 +13,7 @@ variable "tags" {
   type = map(string)
 }
 
-variable "name" {
+variable "signalr_service_name" {
   type        = string
   description = "The name of the SignalR service. Changing this forces a new resource to be created"
 }

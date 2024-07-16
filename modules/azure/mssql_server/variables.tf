@@ -1,4 +1,4 @@
-variable "name" {
+variable "mssql_server_name" {
   description = "The name of the SQL Server."
   type        = string
 }

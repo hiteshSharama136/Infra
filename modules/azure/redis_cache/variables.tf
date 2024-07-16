@@ -1,7 +1,8 @@
-variable "name" {
+variable "redis_cache_name" {
   type        = string
   description = "(Required) The name of the Redis instance. Changing this forces a new resource to be created."
 }
+
 variable "resource_group_name" {
   type        = string
   description = "Resource group name."

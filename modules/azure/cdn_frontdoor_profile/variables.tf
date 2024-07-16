@@ -1,5 +1,4 @@
-
-variable "name" {
+variable "frontdoor_profile_name" {
   type        = string
   description = "Specifies the name of the Front Door Profile"
 }

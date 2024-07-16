@@ -1,4 +1,4 @@
-variable "name" {
+variable "automation_account_name" {
   type        = string
   description = "(Required) Specifies the name of the Automation Account. Changing this forces a new resource to be created."
 }

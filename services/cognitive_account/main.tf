@@ -1,7 +1,7 @@
 module "resource_group" {
   source = "../../modules/azure/resource_group"
 
-  name = var.name
+  resource_group_name = var.resource_group_name
   location            = var.location
   tags = var.tags
 }
@@ -9,7 +9,7 @@ module "resource_group" {
 module "cognitive_account" {
   source = "../../modules/azure/cognitive_account"
 
-  name                   = var.name
+  cognitive_account_name  = var.name
   location               = module.resource_group.location
   resource_group_name    = module.resource_group.resource_group_name
   kind                   = var.kind

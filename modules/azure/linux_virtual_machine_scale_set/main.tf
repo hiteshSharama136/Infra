@@ -1,5 +1,5 @@
 resource "azurerm_linux_virtual_machine_scale_set" "linux_virtual_machine" {
-  name                = var.name
+  name                = var.linux_virtual_machine_name
   resource_group_name = var.resource_group_name
   location            = var.location
   sku                 = var.sku
@@ -28,11 +28,11 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux_virtual_machine" {
   }
 
   network_interface {
-    name    = "${var.name}-interface"
+    name    = "${var.linux_virtual_machine_name}-interface"
     primary = true
 
     ip_configuration {
-      name      = "${var.name}-internal"
+      name      = "${var.linux_virtual_machine_name}-internal"
       primary   = true
       subnet_id = var.subnet_id
     }

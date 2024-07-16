@@ -1,5 +1,5 @@
 resource "azurerm_data_factory_trigger" "trigger" {
-  name                = var.name
+  name                = var.data_factory_trigger_name
   resource_group_name = var.resource_group_name
   data_factory_name   = var.data_factory_name
   schedule {

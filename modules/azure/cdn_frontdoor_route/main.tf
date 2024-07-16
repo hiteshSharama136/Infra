@@ -1,5 +1,5 @@
 resource "azurerm_cdn_frontdoor_route" "route" {
-  name                            = var.name
+  name                            = var.frontdoor_route_name
   cdn_frontdoor_endpoint_id       = var.cdn_frontdoor_endpoint_id
   cdn_frontdoor_origin_group_id   = var.cdn_frontdoor_origin_group_id
   cdn_frontdoor_origin_ids        = var.cdn_frontdoor_origin_ids

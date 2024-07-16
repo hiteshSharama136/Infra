@@ -31,49 +31,38 @@ variable "location" {
   default     = "East US"
 }
 
-variable "app_service_plan_name" {
-  description = "The name of the App Service plan"
+variable "redis_cache_name" {
+  description = "The name of the Redis Cache"
   type        = string
-  default     = "myAppServicePlan"
+  default     = "myRedisCache"
 }
 
-variable "sku_tier" {
-  description = "The SKU tier of the App Service plan"
+variable "sku_name" {
+  description = "The SKU name of the Redis Cache"
   type        = string
   default     = "Standard"
 }
 
-variable "sku_size" {
-  description = "The SKU size of the App Service plan"
-  type        = string
-  default     = "S1"
+variable "capacity" {
+  description = "The capacity of the Redis Cache"
+  type        = number
+  default     = 1
 }
 
-variable "app_service_name" {
-  description = "The name of the App Service"
+variable "family" {
+  description = "The family of the Redis Cache"
   type        = string
-  default     = "myAppService"
+  default     = "C"
 }
 
-variable "always_on" {
-  description = "Should the App Service be always on?"
+variable "enable_non_ssl_port" {
+  description = "Enable non-SSL port for Redis Cache"
   type        = bool
-  default     = true
-}
-
-variable "app_settings" {
-  description = "A map of app settings for the App Service"
-  type        = map(string)
-  default     = {}
+  default     = false
 }
 
 variable "tags" {
-  description = "A map of tags to add to the App Service"
+  description = "A map of tags to add to the Redis Cache"
   type        = map(string)
   default     = {}
-}
-
-variable "name" {
-  type        = string
-  description = "(Required) Provide resource group name"
 }

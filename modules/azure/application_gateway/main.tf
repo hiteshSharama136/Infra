@@ -1,5 +1,5 @@
 resource "azurerm_application_gateway" "app_gateway" {
-  name                = var.name
+  name                = var.app_gateway_name
   resource_group_name = var.resource_group_name
   location            = var.location
 

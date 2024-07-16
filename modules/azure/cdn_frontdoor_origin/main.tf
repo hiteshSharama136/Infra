@@ -1,5 +1,5 @@
 resource "azurerm_cdn_frontdoor_origin" "origin" {
-  name                           = var.name
+  name                           = var.frontdoor_origin_name
   cdn_frontdoor_origin_group_id  = var.cdn_frontdoor_origin_group_id
 
   enabled                        = var.enabled

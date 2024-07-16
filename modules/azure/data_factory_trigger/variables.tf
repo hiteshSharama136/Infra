@@ -1,4 +1,4 @@
-variable "name" {
+variable "data_factory_trigger_name" {
   description = "The name of the Data Factory Trigger."
   type        = string
 }

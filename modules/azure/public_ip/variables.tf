@@ -1,5 +1,4 @@
-
-variable "name" {
+variable "public_ip_name" {
   type        = string
   description = "The name of the public ip"
 }

@@ -3,7 +3,7 @@ variable "data_factory_id" {
   description = "The Data Factory ID in which to associate the Linked Service with"
 }
 
-variable "name" {
+variable "data_factory_linked_service_name" {
   type        = string
   description = "Specifies the name of the Data Factory Linked Service"
 }

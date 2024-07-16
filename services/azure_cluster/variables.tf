@@ -170,8 +170,3 @@ variable "vnet_subnet_id" {
   type        = string
   description = "(Required) Subnet Id to deploy the cluster"
 }
-
-variable "name" {
-  type        = string
-  description = "(Required) Provide resource group name"
-}

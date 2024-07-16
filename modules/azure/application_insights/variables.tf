@@ -1,4 +1,4 @@
-variable "name" {
+variable "app_insights_name" {
   type        = string
   description = "(Required) Specifies the name of the Application Insights component. Changing this forces a new resource to be created."
 }

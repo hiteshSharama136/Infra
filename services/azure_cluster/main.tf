@@ -1,7 +1,7 @@
 module "resource_group" {
   source = "../../modules/azure/resource_group"
 
-  name = var.name
+  resource_group_name = var.resource_group_name
   location            = var.location
   tags = var.tags
 }

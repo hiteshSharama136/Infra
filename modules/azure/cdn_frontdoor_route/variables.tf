@@ -1,4 +1,4 @@
-variable "name" {
+variable "frontdoor_route_name" {
   type        = string
   description = "The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters"
 }

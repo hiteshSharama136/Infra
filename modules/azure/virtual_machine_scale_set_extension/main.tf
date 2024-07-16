@@ -1,5 +1,5 @@
 resource "azurerm_virtual_machine_scale_set_extension" "vm_scale_set_extension" {
-  name                         = var.name
+  name                         = var.vm_scale_set_extension_name
   virtual_machine_scale_set_id = var.virtual_machine_scale_set_id
   publisher                    = var.publisher
   type                         = var.type

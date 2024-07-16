@@ -1,5 +1,5 @@
 
-variable "name" {
+variable "frontdoor_endpoint_name" {
   type        = string
   description = "The name which should be used for this Front Door Endpoint"
 }

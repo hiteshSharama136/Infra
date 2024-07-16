@@ -19,10 +19,6 @@ variable "arm_client_secret" {
   description = "The client secret of azure provider spn"
 }
 
-variable "name" {
-  type        = string
-  description = "(Required) Provide resource group name"
-}
 
 variable "resource_group_name" {
   description = "The name of the resource group"

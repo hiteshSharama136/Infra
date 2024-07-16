@@ -60,8 +60,3 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
-
-variable "name" {
-  type        = string
-  description = "(Required) Provide resource group name"
-}

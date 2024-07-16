@@ -1,5 +1,5 @@
 resource "azurerm_signalr_service" "signalr" {
-  name                = var.name
+  name                = var.signalr_service_name
   location            = var.location
   resource_group_name = var.resource_group_name
 

@@ -1,4 +1,4 @@
-variable "name" {
+variable "cognitive_account_name" {
   type        = string
   description = "(Required) Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created."
 }

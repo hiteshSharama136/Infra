@@ -1,4 +1,4 @@
-variable "name" {
+variable "vm_extension_name" {
   type        = string
   description = "(Required) The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created."
 }

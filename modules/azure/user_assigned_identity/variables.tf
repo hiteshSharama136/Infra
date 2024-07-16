@@ -1,4 +1,4 @@
-variable "name" {
+variable "user_assigned_identity_name" {
   type        = string
   description = "(Required) Provide the identity name"
 }

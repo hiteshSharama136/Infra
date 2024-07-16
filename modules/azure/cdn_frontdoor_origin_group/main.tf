@@ -1,5 +1,5 @@
 resource "azurerm_cdn_frontdoor_origin_group" "origin_group" {
-  name                     = var.name
+  name                     = var.frontdoor_origin_group_name
   cdn_frontdoor_profile_id = var.cdn_frontdoor_profile_id
   session_affinity_enabled = var.session_affinity_enabled
 

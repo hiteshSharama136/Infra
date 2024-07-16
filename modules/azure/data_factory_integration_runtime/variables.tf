@@ -13,7 +13,7 @@ variable "data_factory_id" {
   type        = string
 }
 
-variable "name" {
+variable "data_factory_integration_runtime_name" {
   description = "The name of the self-hosted integration runtime."
   type        = string
 }

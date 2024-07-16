@@ -1,4 +1,4 @@
-resource "azurerm_app_configuration_key" "current" {
+resource "azurerm_app_configuration_key" "app_config_key" {
   configuration_store_id = var.appconf_id
   key                    = var.key
   label                  = var.label

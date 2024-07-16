@@ -6,3 +6,7 @@ output "psql_flexible_server_fqdn" {
     description = "The FQDN of the PostgreSQL Flexible Server."
     value = azurerm_postgresql_flexible_server.psql_flexible_server.fqdn
 }
+
+output "postgresql_server_name" {
+  value = azurerm_postgresql_flexible_server.psql_flexible_server.name
+}

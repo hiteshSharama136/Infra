@@ -1,5 +1,5 @@
 resource "azurerm_data_factory_linked_custom_service" "linked_service" {
-  name                  = var.name
+  name                  = var.data_factory_linked_service_name
   data_factory_id       = var.data_factory_id
   type                  = var.type
   description           = var.description

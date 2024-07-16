@@ -1,4 +1,4 @@
-variable "name" {
+variable "analytics_workspace_name" {
   type        = string
   description = " (Required) Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created."
 }

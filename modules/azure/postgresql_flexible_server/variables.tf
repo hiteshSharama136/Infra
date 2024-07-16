@@ -1,7 +1,8 @@
-variable "name" {
+variable "postgresql_server_name" {
   type        = string
   description = "(Required) The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created."
 }
+
 variable "resource_group_name" {
   type        = string
   description = "(Required) The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created."

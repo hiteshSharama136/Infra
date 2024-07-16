@@ -1,7 +1,7 @@
 module "resource_group" {
   source = "../../modules/azure/resource_group"
 
-  name     = var.name
+  resource_group_name     = var.resource_group_name
   location            = var.location
   tags = var.tags
 }
@@ -9,7 +9,7 @@ module "resource_group" {
 module "key_vault" {
   source = "../../modules/azure/key_vault"
 
-  name      = var.key_vault_name
+  key_vault_name      = var.key_vault_name
   location            = module.resource_group.location
   resource_group_name = module.resource_group.resource_group_name
   tenant_id           = var.tenant_id

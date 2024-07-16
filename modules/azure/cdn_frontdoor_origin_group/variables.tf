@@ -1,4 +1,4 @@
-variable "name" {
+variable "frontdoor_origin_group_name" {
   type        = string
   description = "The name which should be used for this Front Door Origin Group"
 }

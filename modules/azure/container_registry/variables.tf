@@ -1,4 +1,4 @@
-variable "name" {
+variable "container_registry_name" {
   type        = string
   description = "(Required) Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created."
 }

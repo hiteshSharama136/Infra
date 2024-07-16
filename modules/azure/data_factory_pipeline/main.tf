@@ -1,5 +1,5 @@
 resource "azurerm_data_factory_pipeline" "pipeline" {
-  name                           = var.name
+  name                           = var.data_factory_pipeline_name
   data_factory_id                = var.data_factory_id
   variables                      = var.variables
   activities_json                = var.activities_json

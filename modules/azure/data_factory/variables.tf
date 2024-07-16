@@ -1,4 +1,4 @@
-variable "name" {
+variable "data_factory_name" {
   description = "The name of the Data Factory."
   type        = string
 }

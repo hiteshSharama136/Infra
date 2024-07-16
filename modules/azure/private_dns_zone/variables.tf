@@ -1,4 +1,4 @@
-variable "name" {
+variable "dns_zone_name" {
   type        = string
   description = "(Required) The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created."
 }

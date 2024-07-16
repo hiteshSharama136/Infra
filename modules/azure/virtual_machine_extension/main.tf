@@ -1,5 +1,5 @@
 resource "azurerm_virtual_machine_extension" "vm_extension" {
-  name                         = var.name
+  name                         = var.vm_extension_name
   virtual_machine_id           = var.virtual_machine_id
   publisher                    = var.publisher
   type                         = var.type

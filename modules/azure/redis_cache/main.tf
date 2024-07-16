@@ -1,5 +1,5 @@
 resource "azurerm_redis_cache" "redis_cache" {
-  name                = var.name
+  name                = var.redis_cache_name
   location            = var.location
   resource_group_name = var.resource_group_name
   capacity            = var.capacity
