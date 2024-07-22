@@ -7,4 +7,12 @@ resource "azurerm_data_factory_trigger_schedule" "schedule" {
   frequency           = var.frequency
   interval            = var.interval
   start_time          = var.start_time
+
+  pipeline {
+    name = var.data_factory_pipeline_name
+  }
+
+  schedule {
+  }
+
 }

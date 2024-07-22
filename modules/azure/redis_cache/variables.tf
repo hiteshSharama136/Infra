@@ -1,57 +1,40 @@
-variable "redis_cache_name" {
+variable "private_endpoint_name" {
+  description = "The name of the private endpoint"
   type        = string
-  description = "(Required) The name of the Redis instance. Changing this forces a new resource to be created."
-}
-
-variable "resource_group_name" {
-  type        = string
-  description = "Resource group name."
 }
 
 variable "location" {
+  description = "The location of the private endpoint"
   type        = string
-  description = "Resource group location"
+}
+
+variable "resource_group_name" {
+  description = "The name of the resource group"
+  type        = string
+}
+
+variable "subnet_id" {
+  description = "The ID of the subnet to associate with the private endpoint"
+  type        = string
+}
+
+variable "redis_cache_id" {
+  description = "The ID of the Azure Redis Cache instance"
+  type        = string
+}
+
+variable "private_dns_zone_name" {
+  description = "The name of the private DNS zone for Redis Cache"
+  type        = string
+}
+
+variable "virtual_network_id" {
+  description = "The ID of the virtual network to link with the private DNS zone"
+  type        = string
 }
 
 variable "tags" {
-  type = map(string)
-}
-
-variable "sku_name" {
-  type        = string
-  default     = "standard"
-  description = "The Name of the SKU used for this Key Vault. Possible values are standard and free"
-
-}
-
-variable "family" {
-  type        = string
-  default     = "C"
-  description = "(Required) The SKU family/pricing group to use. Valid values are C (for Basic/Standard SKU family) and P (for Premium)"
-
-}
-
-variable "capacity" {
-  type        = number
-  description = "(Required) The size of the Redis cache to deploy. Valid values for a SKU family of C (Basic/Standard) are 0, 1, 2, 3, 4, 5, 6, and for P (Premium) family are 1, 2, 3, 4, 5."
-}
-
-
-variable "public_network_access_enabled" {
-  type        = bool
-  default     = false
-  description = "(Optional) Whether or not public network access is allowed for this Redis Cache. true means this resource could be accessed by both public and private endpoint. false means only private endpoint access is allowed. Defaults to true."
-}
-
-
-variable "enable_non_ssl_port" {
-  type        = bool
-  default     = false
-  description = "(Optional) Enable the non-SSL port (6379) - disabled by default."
-}
-
-variable "minimum_tls_version" {
-  type        = string
-  default     = "1.2"
-  description = "(Optional) The minimum TLS version. Possible values are 1.0, 1.1 and 1.2. Defaults to 1.0."
+  description = "A map of tags to assign to the resources"
+  type        = map(string)
+  default     = {}
 }

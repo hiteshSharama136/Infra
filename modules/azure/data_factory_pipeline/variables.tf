@@ -60,3 +60,8 @@ variable "activities_json" {
   default     = null
   description = "A JSON object that contains the activities that will be associated with the Data Factory Pipeline"
 }
+
+variable "data_factory_name" {
+  description = "The name of the Data Factory"
+  type        = string
+}

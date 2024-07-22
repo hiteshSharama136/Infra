@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "airflow.fullname" . }}-web
+  labels:
+    {{- include "airflow.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "airflow.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "airflow.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: web
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: AIRFLOW__CORE__EXECUTOR
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "airflow.fullname" . }}-config
+                  key: executor
+          volumeMounts:
+            - name: config-volume
+              mountPath: /opt/airflow/airflow.cfg
+              subPath: airflow.cfg
+      volumes:
+        - name: config-volume
+          configMap:
+            name: {{ include "airflow.fullname" . }}-config

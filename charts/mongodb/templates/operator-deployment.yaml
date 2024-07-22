@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-kubernetes-operator
+  labels:
+    app: mongodb-kubernetes-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb-kubernetes-operator
+  template:
+    metadata:
+      labels:
+        app: mongodb-kubernetes-operator
+    spec:
+      containers:
+        - name: mongodb-kubernetes-operator
+          image: "{{ .Values.operator.image.repository }}:{{ .Values.operator.image.tag }}"
+          imagePullPolicy: {{ .Values.operator.image.pullPolicy }}
+          ports:
+            - containerPort: 60000

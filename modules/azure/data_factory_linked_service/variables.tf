@@ -60,3 +60,8 @@ variable "integration_runtime_parameters" {
   default     = {}
   description = "A map of parameters to associate with the integration runtime"
 }
+
+variable "connection_string" {
+  description = "The connection string for the Linked Service"
+  type        = string
+}

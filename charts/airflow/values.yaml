@@ -1,0 +1,30 @@
+replicaCount: 1
+
+image:
+  repository: apache/airflow
+  tag: 2.0.0
+  pullPolicy: IfNotPresent
+
+config:
+  executor: LocalExecutor
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: airflow.example.com
+      paths:
+        - /
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

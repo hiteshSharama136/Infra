@@ -53,3 +53,18 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "compute_type" {
+  description = "The compute type of the Integration Runtime"
+  type        = string
+}
+
+variable "core_count" {
+  description = "The core count of the Integration Runtime"
+  type        = number
+}
+
+variable "time_to_live" {
+  description = "The time to live of the Integration Runtime"
+  type        = number
+}

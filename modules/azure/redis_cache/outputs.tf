@@ -1,10 +1,3 @@
-output "id" {
-  value       = azurerm_redis_cache.redis_cache.id
-  description = "The ID of the redis cache."
-}
-
-output "hostname" {
-  value       = azurerm_redis_cache.redis_cache.hostname
-  description = "The Hostname of the Redis Instance"
-
+output "private_dns_zone_name" {
+  value = azurerm_private_dns_zone.redis_cache_dns_zone.name
 }

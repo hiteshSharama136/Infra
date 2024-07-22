@@ -1,0 +1,12 @@
+apiVersion: mongodb.com/v1
+kind: MongoDBCommunity
+metadata:
+  name: {{ .Values.mongodb.name }}
+  namespace: {{ .Values.mongodb.namespace }}
+spec:
+  members: {{ .Values.mongodb.members }}
+  version: {{ .Values.mongodb.version }}
+  type: {{ .Values.mongodb.type }}
+  persistent: {{ .Values.mongodb.persistent }}
+  volumeSize: {{ .Values.mongodb.volumeSize }}
+  credentials: {{ .Values.mongodb.credentials }}

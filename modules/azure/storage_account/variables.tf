@@ -2,22 +2,42 @@ variable "st_name" {
   type        = string
   description = " (Required) Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group."
 }
+
 variable "resource_group_name" {
+  description = "The name of the resource group"
   type        = string
-  description = "(Required) The name of the resource group in which to create the storage account. Changing this forces a new resource to be created."
 }
+
 variable "location" {
+  description = "The location of the storage account"
   type        = string
-  description = "(Required) Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created."
 }
+
 variable "account_tier" {
+  description = "The tier of the storage account"
   type        = string
-  description = " (Required) Defines the Tier to use for this storage account. Valid options are Standard and Premium. For BlockBlobStorage and FileStorage accounts only Premium is valid. Changing this forces a new resource to be created."
+  default     = "Standard"
 }
+
 variable "account_replication_type" {
+  description = "The replication type of the storage account"
   type        = string
-  description = "(Required) Defines the type of replication to use for this storage account. Valid options are LRS, GRS, RAGRS, ZRS, GZRS and RAGZRS."
+  default     = "LRS"
 }
+
+variable "container_name" {
+  description = "The name of the storage container"
+  type        = string
+}
+
+variable "container_access_type" {
+  description = "The access type of the storage container"
+  type        = string
+  default     = "private"
+}
+
 variable "tags" {
-  type = object({ Env = string, App = string })
+  description = "A map of tags to assign to the resources"
+  type        = map(string)
+  default     = {}
 }

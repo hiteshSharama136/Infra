@@ -4,6 +4,8 @@ resource "azurerm_data_factory_linked_custom_service" "linked_service" {
   type                  = var.type
   description           = var.description
 
+  # connection_string = var.connection_string
+
   type_properties_json  = var.type_properties_json
   additional_properties = var.additional_properties
 

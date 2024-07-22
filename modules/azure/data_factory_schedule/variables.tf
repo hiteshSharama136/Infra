@@ -47,3 +47,8 @@ variable "end_window" {
   description = "The end window for the trigger."
   type        = string
 }
+
+variable "data_factory_pipeline_name" {
+  description = "The name of the Pipeline"
+  type        = string
+}

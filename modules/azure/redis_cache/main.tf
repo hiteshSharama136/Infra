@@ -1,19 +1,14 @@
-resource "azurerm_redis_cache" "redis_cache" {
-  name                = var.redis_cache_name
-  location            = var.location
+resource "azurerm_private_dns_zone" "redis_cache_dns_zone" {
+  name                = var.private_dns_zone_name
   resource_group_name = var.resource_group_name
-  capacity            = var.capacity
-  family              = var.family
-  sku_name            = var.sku_name
-
-  public_network_access_enabled = var.public_network_access_enabled
-  
-  enable_non_ssl_port = var.enable_non_ssl_port 
-  
-  minimum_tls_version = var.minimum_tls_version
-
-  redis_configuration {
-  }
 
   tags = var.tags
+}
+
+resource "azurerm_private_dns_zone_virtual_network_link" "redis_cache_dns_zone_link" {
+  name                = "redis-cache-dns-link"
+  resource_group_name = var.resource_group_name
+  private_dns_zone_name = azurerm_private_dns_zone.redis_cache_dns_zone.name
+  virtual_network_id  = var.virtual_network_id
+  # is_manual_connection = false
 }

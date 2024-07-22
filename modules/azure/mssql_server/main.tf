@@ -12,3 +12,11 @@ resource "azurerm_mssql_server" "mssql" {
   }
 
 }
+
+resource "azurerm_sql_firewall_rule" "allow_all_ips" {
+  name                = "AllowAllIPs"
+  resource_group_name = var.resource_group_name
+  server_name         = azurerm_mssql_server.mssql.name
+  start_ip_address    = "0.0.0.0"
+  end_ip_address      = "255.255.255.255"
+}

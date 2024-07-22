@@ -10,6 +10,10 @@ resource "azurerm_data_factory_trigger" "trigger" {
       interval  = var.interval
     }
   }
+
+  pipeline {
+    name = var.data_factory_pipeline_name
+  }
   
   depends_on = [azurerm_data_factory_trigger_schedule.schedule]
 }
