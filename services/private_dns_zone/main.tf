@@ -14,5 +14,3 @@ module "private_dns_zone" {
   dns_zone_resource_group_name = module.resource_group
   tags                = var.tags
 }
-
-

@@ -16,4 +16,3 @@ module "container_registry" {
   admin_enabled       = var.admin_enabled
   tags                = var.tags
 }
-

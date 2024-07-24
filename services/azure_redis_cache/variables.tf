@@ -66,3 +66,28 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "subnet_id" {
+  description = "The ID of the subnet to associate with the private endpoint"
+  type        = string
+}
+
+variable "redis_cache_id" {
+  description = "The ID of the Azure Redis Cache instance"
+  type        = string
+}
+
+variable "private_dns_zone_name" {
+  description = "The name of the private DNS zone for Redis Cache"
+  type        = string
+}
+
+variable "virtual_network_id" {
+  description = "The ID of the virtual network to link with the private DNS zone"
+  type        = string
+}
+
+variable "private_endpoint_name" {
+  description = "The name of the private endpoint"
+  type        = string
+}

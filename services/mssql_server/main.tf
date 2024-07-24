@@ -16,4 +16,3 @@ module "mssql_server" {
   administrator_login_password  = var.administrator_login_password
   tags                          = var.tags
 }
-

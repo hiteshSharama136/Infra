@@ -35,4 +35,3 @@ module "postgresql_database" {
   private_dns_zone_id  = var.private_dns_zone_id
   administrator_password  = var.administrator_password
 }
-

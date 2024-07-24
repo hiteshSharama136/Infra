@@ -6,7 +6,6 @@ module "resource_group" {
   tags = var.tags
 }
 
-
 module "app_service" {
   source = "../../modules/azure/app_service"
 

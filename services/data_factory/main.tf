@@ -35,7 +35,6 @@ module "integration_runtime" {
   node_size = "Standard_DS2_v2"
 }
 
-
 module "linked_service" {
   source = "../../modules/azure/data_factory_linked_service"
 
@@ -87,5 +86,4 @@ module "trigger" {
 
     start_time  = var.start_time
     schedule_name   = var.schedule_name
-
 }

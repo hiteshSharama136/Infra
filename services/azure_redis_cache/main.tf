@@ -9,14 +9,12 @@ module "resource_group" {
 module "redis_cache" {
   source = "../../modules/azure/redis_cache"
 
-  redis_cache_name    = var.redis_cache_name
   location            = module.resource_group.location
   resource_group_name = module.resource_group.resource_group_name
-  sku_name            = var.sku_name
-  capacity            = var.capacity
-  family              = var.family
-  enable_non_ssl_port = var.enable_non_ssl_port
+  redis_cache_id      = var.redis_cache_id
+  virtual_network_id  = var.virtual_network_id
+  private_endpoint_name  = var.private_endpoint_name
+  private_dns_zone_name = var.private_dns_zone_name
+  subnet_id           = var.subnet_id  
   tags                = var.tags
 }
-
-
