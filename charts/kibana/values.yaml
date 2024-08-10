@@ -1,0 +1,17 @@
+kibana:
+  image:
+    repository: docker.elastic.co/kibana/kibana
+    tag: 7.12.1
+  service:
+    type: ClusterIP
+    port: 5601
+
+  ingress:
+    enabled: false
+    annotations: {}
+    hosts:
+      - host: kibana.local
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls: []

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: redis
+  namespace: default
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: redis-operator
+  namespace: default
+spec:
+  destination:
+    namespace: redis
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: <your-redis-chart-repository-url>
+    targetRevision: HEAD
+    helm:
+      chart: redis
+      values: |
+        ---
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -1,38 +1,31 @@
-replicaCount: 3
-
-operator:
-  image:
-    repository: quay.io/mongodb/mongodb-kubernetes-operator
-    tag: 0.6.0
-    pullPolicy: IfNotPresent
-
 mongodb:
-  name: my-mongodb
-  namespace: default
-  members: 3
-  version: "4.4.0"
-  type: ReplicaSet
-  credentials: {}
-  persistent: true
-  volumeSize: 10Gi
+  image:
+    repository: mongo
+    tag: 4.4.6
+  service:
+    type: ClusterIP
+    port: 27017
+  auth:
+    enabled: true
+    rootUsername: root
+    rootPassword: rootpassword
+    database: admin
+  persistence:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+    size: 1Gi
   
-service:
-  type: ClusterIP
-  port: 27017
-
-ingress:
-  enabled: false
-  annotations: {}
-  hosts:
-    - host: mongodb.example.com
-      paths:
-        - /
+  ingress:
+    enabled: false
+    annotations: {}
+    hosts:
+      - host: mongodb.local
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls: []
 
 resources: {}
-
-persistence:
-  enabled: true
-  accessMode: ReadWriteOnce
-  size: 10Gi
 
 config: {}

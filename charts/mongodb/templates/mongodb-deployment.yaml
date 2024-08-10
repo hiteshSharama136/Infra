@@ -1,12 +1,40 @@
-apiVersion: mongodb.com/v1
-kind: MongoDBCommunity
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: {{ .Values.mongodb.name }}
-  namespace: {{ .Values.mongodb.namespace }}
+  name: mongodb
+  namespace: default
 spec:
-  members: {{ .Values.mongodb.members }}
-  version: {{ .Values.mongodb.version }}
-  type: {{ .Values.mongodb.type }}
-  persistent: {{ .Values.mongodb.persistent }}
-  volumeSize: {{ .Values.mongodb.volumeSize }}
-  credentials: {{ .Values.mongodb.credentials }}
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+        - name: mongodb
+          image: "{{ .Values.mongodb.image.repository }}:{{ .Values.mongodb.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.mongodb.service.port }}
+          env:
+            {{- if .Values.mongodb.auth.enabled }}
+            - name: MONGO_INITDB_ROOT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: root-username
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: root-password
+            {{- end }}
+          volumeMounts:
+            - name: mongodb-storage
+              mountPath: /data/db
+      volumes:
+        - name: mongodb-storage
+          persistentVolumeClaim:
+            claimName: mongodb-pvc

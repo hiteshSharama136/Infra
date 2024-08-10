@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka
+  template:
+    metadata:
+      labels:
+        app: kafka
+    spec:
+      containers:
+        - name: kafka
+          image: "{{ .Values.kafka.image.repository }}:{{ .Values.kafka.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.kafka.service.port }}
+          env:
+            - name: KAFKA_CFG_ZOOKEEPER_CONNECT
+              value: "zookeeper:2181"
+            - name: ALLOW_PLAINTEXT_LISTENER
+              value: "yes"
+          volumeMounts:
+            - name: config-volume
+              mountPath: /opt/bitnami/kafka/config
+          readinessProbe:
+            exec:
+              command:
+                - sh
+                - -c
+                - "echo 'ruok' | nc -w 5 localhost 2181 | grep imok"
+            initialDelaySeconds: 10
+            periodSeconds: 10
+      volumes:
+        - name: config-volume
+          configMap:
+            name: kafka-config

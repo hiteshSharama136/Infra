@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mongodb
+  namespace: default
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mongodb-operator
+  namespace: default
+spec:
+  destination:
+    namespace: mongodb
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://mongodb.github.io/helm-charts
+    targetRevision: HEAD
+    helm:
+      chart: community-operator
+      values: |
+        ---
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

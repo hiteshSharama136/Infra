@@ -1,0 +1,19 @@
+# Default values for Redis Helm chart
+
+redis:
+  image:
+    repository: redis
+    tag: 6.2.6
+  service:
+    type: ClusterIP
+    port: 6379
+
+  ingress:
+    enabled: false
+    annotations: {}
+    hosts:
+      - host: redis.local
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls: []

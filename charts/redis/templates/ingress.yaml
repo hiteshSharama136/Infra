@@ -1,16 +1,16 @@
-{{- if .Values.mongodb.ingress.enabled -}}
+{{- if .Values.redis.ingress.enabled -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: mongodb-ingress
+  name: redis-ingress
   namespace: default
   annotations:
-    {{- range $key, $value := .Values.mongodb.ingress.annotations }}
+    {{- range $key, $value := .Values.redis.ingress.annotations }}
     {{ $key }}: {{ $value | quote }}
     {{- end }}
 spec:
   rules:
-    {{- range .Values.mongodb.ingress.hosts }}
+    {{- range .Values.redis.ingress.hosts }}
     - host: {{ .host }}
       http:
         paths:
@@ -19,14 +19,14 @@ spec:
             pathType: {{ .pathType }}
             backend:
               service:
-                name: mongodb
+                name: redis
                 port:
-                  number: {{ $.Values.mongodb.service.port }}
+                  number: {{ $.Values.redis.service.port }}
           {{- end }}
     {{- end }}
-  {{- if .Values.mongodb.ingress.tls }}
+  {{- if .Values.redis.ingress.tls }}
   tls:
-    {{- range .Values.mongodb.ingress.tls }}
+    {{- range .Values.redis.ingress.tls }}
     - hosts:
         {{- range .hosts }}
         - {{ . }}

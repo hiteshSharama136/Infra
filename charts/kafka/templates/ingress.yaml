@@ -1,16 +1,16 @@
-{{- if .Values.mongodb.ingress.enabled -}}
+{{- if .Values.kafka.ingress.enabled -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: mongodb-ingress
+  name: kafka-ingress
   namespace: default
   annotations:
-    {{- range $key, $value := .Values.mongodb.ingress.annotations }}
+    {{- range $key, $value := .Values.kafka.ingress.annotations }}
     {{ $key }}: {{ $value | quote }}
     {{- end }}
 spec:
   rules:
-    {{- range .Values.mongodb.ingress.hosts }}
+    {{- range .Values.kafka.ingress.hosts }}
     - host: {{ .host }}
       http:
         paths:
@@ -19,14 +19,14 @@ spec:
             pathType: {{ .pathType }}
             backend:
               service:
-                name: mongodb
+                name: kafka
                 port:
-                  number: {{ $.Values.mongodb.service.port }}
+                  number: {{ $.Values.kafka.service.port }}
           {{- end }}
     {{- end }}
-  {{- if .Values.mongodb.ingress.tls }}
+  {{- if .Values.kafka.ingress.tls }}
   tls:
-    {{- range .Values.mongodb.ingress.tls }}
+    {{- range .Values.kafka.ingress.tls }}
     - hosts:
         {{- range .hosts }}
         - {{ . }}

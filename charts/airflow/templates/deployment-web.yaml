@@ -1,37 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "airflow.fullname" . }}-web
-  labels:
-    {{- include "airflow.labels" . | nindent 4 }}
+  name: airflow-web
+  namespace: airflow
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
-      {{- include "airflow.selectorLabels" . | nindent 6 }}
+      app: airflow-web
   template:
     metadata:
       labels:
-        {{- include "airflow.selectorLabels" . | nindent 8 }}
+        app: airflow-web
     spec:
       containers:
-        - name: web
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+        - name: airflow-web
+          image: {{ .Values.airflow.image.repository }}:{{ .Values.airflow.image.tag }}
           ports:
-            - name: http
-              containerPort: 8080
+            - containerPort: {{ .Values.airflow.web.port }}
           env:
             - name: AIRFLOW__CORE__EXECUTOR
-              valueFrom:
-                configMapKeyRef:
-                  name: {{ include "airflow.fullname" . }}-config
-                  key: executor
-          volumeMounts:
-            - name: config-volume
-              mountPath: /opt/airflow/airflow.cfg
-              subPath: airflow.cfg
-      volumes:
-        - name: config-volume
-          configMap:
-            name: {{ include "airflow.fullname" . }}-config
+              value: {{ .Values.airflow.config.AIRFLOW__CORE__EXECUTOR }}
+            - name: AIRFLOW__CORE__FERNET_KEY
+              value: {{ .Values.airflow.config.AIRFLOW__CORE__FERNET_KEY }}
+            - name: AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION
+              value: {{ .Values.airflow.config.AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION }}
+            - name: AIRFLOW__CORE__LOAD_EXAMPLES
+              value: {{ .Values.airflow.config.AIRFLOW__CORE__LOAD_EXAMPLES }}
